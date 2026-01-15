@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot | Interactive Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body>
+    <!-- Main Website Content (KEEPING YOUR ORIGINAL BEAUTIFUL DESIGN) -->
+    <div class="website-content">
+        <header class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to AI Assistant</h1>
+                <p class="hero-subtitle">Your intelligent companion for instant help and support</p>
+                <div class="hero-features">
+                    <div class="feature">
+                        <i class="fas fa-bolt"></i>
+                        <span>Instant Responses</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure & Private</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-clock"></i>
+                        <span>24/7 Available</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="info-section">
+                <h2>How It Works</h2>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <h3>Start Chat</h3>
+                        <p>Click the chat icon to begin your conversation with our AI assistant.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Ask Anything</h3>
+                        <p>Get instant answers to your questions on various topics.</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <h3>Get Help</h3>
+                        <p>Receive guidance and support whenever you need it.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="demo-section">
+                <h2>Live Chat Preview</h2>
+                <div class="demo-container">
+                    <div class="demo-chat">
+                        <div class="demo-message demo-user">
+                            <span>Hello! How can you help me?</span>
+                        </div>
+                        <div class="demo-message demo-bot">
+                            <span>Hi! I can assist with information, answer questions, provide guidance, and much more!</span>
+                        </div>
+                        <div class="demo-message demo-typing">
+                            <div class="typing-indicator">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2024 AI Chatbot Assistant. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- CHATBOT SIDEBAR (Only this part is new - icon moved to side) -->
+    <div class="chatbox-sidebar">
+        <!-- Side Chat Icon -->
+        <div class="chatbox__button-side">
+            <button class="chat-icon-btn-side">
+                <div class="pulse-ring-side"></div>
+                <img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" alt="Chat">
+                <span class="notification-badge-side">1</span>
+            </button>
+            <div class="chat-label">Chat with Sam</div>
+        </div>
+        
+        <!-- Chatbox (same as before, just positioned differently) -->
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <i class="fas fa-robot" style="font-size: 48px; color: #ffffff;"></i>
+                </div>
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chat support</h4>
+                    <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>
+                    <div class="chat-status">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Online</span>
+                    </div>
+                </div>
+                <button class="minimize-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbox__messages">
+                <div class="welcome-message">
+                    <p>👋 Hi! I'm Sam, your AI assistant. How can I help you today?</p>
+                </div>
+            </div>
+            <div class="chatbox__footer">
+                <div class="input-container">
+                    <input type="text" placeholder="Write a message..." class="message-input">
+                    <div class="input-actions">
+                        <button class="send__button">
+                            Send
+                        </button>
+                    </div>
+                </div>
+                <div class="suggestions">
+                    <button class="suggestion-btn">What can you do?</button>
+                    <button class="suggestion-btn">Need help</button>
+                    <button class="suggestion-btn">Tell me a joke</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $SCRIPT_ROOT = "{{ request.script_root|tojson|safe }}";
+        const quickReplies = {
+            "What can you do?": "I can help you with various tasks including answering questions, providing information, assisting with problems, and more!",
+            "Need help": "I'm here to help! Please tell me what you need assistance with.",
+            "Tell me a joke": "Why don't scientists trust atoms? Because they make up everything! 😄"
+        };
+    </script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
